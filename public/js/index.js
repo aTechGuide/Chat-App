@@ -10,7 +10,3 @@ socket.on('newMessage', function(message) {
 socket.on('disconnect', function() {
   console.log('Disconnected to server');
 });
-
-socket.on('newEmail', function(email) {
-  console.log('New Email Recieved', email);
-});

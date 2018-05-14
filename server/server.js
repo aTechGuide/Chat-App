@@ -15,10 +15,22 @@ var io = socketIO(server);
 io.on('connection', (socket) => {
   console.log('New User Connected');
 
+  // socket.emit emits an event to a single connection
+  socket.emit('newMessage', {
+    from: 'Admin',
+    text: 'Welcome to Chat App',
+    createdAt: new Date().getTime()
+  });
+
+  // socket.broadcast.emit emits an event to a every connection except the socket from which event is coming from
+  socket.broadcast.emit('newMessage', {
+    from: 'Admin',
+    message: "New User Joined",
+    createdAt: new Date().getTime()
+  });
+
   socket.on('createMessage', (message) => {
     console.log('createMessage', message);
-
-    // socket.emit emits an event to a single connection
     // io.emit emits an event to a every connection
     io.emit('newMessage', {
       from: message.from,
@@ -31,8 +43,6 @@ io.on('connection', (socket) => {
     console.log('Disconnected to server');
   });
 });
-
-
 
 server.listen(port, () => {
   console.log(`Started on port ${port} `);

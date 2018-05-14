@@ -17,12 +17,14 @@ io.on('connection', (socket) => {
 
   socket.on('createMessage', (message) => {
     console.log('createMessage', message);
-  });
 
-  socket.emit('newMessage', {
-    from: 'John',
-    text: 'hey, kamran',
-    createdAt: 123
+    // socket.emit emits an event to a single connection
+    // io.emit emits an event to a every connection
+    io.emit('newMessage', {
+      from: message.from,
+      text: message.text,
+      createdAt: new Date().getTime()
+    });
   });
 
   socket.on('disconnect', () => {

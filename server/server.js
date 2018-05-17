@@ -22,10 +22,11 @@ io.on('connection', (socket) => {
   // socket.broadcast.emit emits an event to a every connection except the socket from which event is coming from
   socket.broadcast.emit('newMessage', generateMessage('Admin', 'New User Joined'));
 
-  socket.on('createMessage', (message) => {
+  socket.on('createMessage', (message, callback) => {
     console.log('createMessage', message);
     // io.emit emits an event to a every connection
     io.emit('newMessage', generateMessage(message.from, message.text));
+    callback('This is from the server');
   });
 
   socket.on('disconnect', () => {

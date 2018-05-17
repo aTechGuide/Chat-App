@@ -1,4 +1,8 @@
-# Chat App
+## Chat App
 
-## Message Event Format
+### Message Event Format
 ``` socket.emit('createMessage', {from: 'kamran', text: 'This should emit!'}); ```
+
+## References
+- Styles [link](https://gist.github.com/andrewjmead/4783dec59ba2d1e5bcf3e1c301c5858d)
+- GeoLocation APIs [link](https://developer.mozilla.org/en-US/docs/Web/API/Geolocation/Using_geolocation)

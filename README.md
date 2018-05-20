@@ -1,5 +1,7 @@
 ## Chat App
 
+## Live Preview
+App is deployed on Heroku, you can access it using [this](https://rocky-gorge-40953.herokuapp.com/) link
 ### Message Event Format
 ``` socket.emit('createMessage', {from: 'kamran', text: 'This should emit!'}); ```
 

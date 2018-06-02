@@ -1,7 +1,10 @@
 ## Chat App
+Peer to Peer Messaging App build on NodeJS and Socket.io. Users can create/join a chat room for which others users are notified. Messages sent to a room aren't persisted to a database. 
 
 ## Live Preview
 App is deployed on Heroku, you can access it using [this](https://rocky-gorge-40953.herokuapp.com/) link
+
+## Developer Zone
 ### Message Event Format
 ``` socket.emit('createMessage', {from: 'kamran', text: 'This should emit!'}); ```
 
